@@ -52,4 +52,5 @@ int main (){
             cout << "Время отправления: "<< mas[i].hour << ":"<< mas[i].min<<";\n";
         }
     }
+    return 0;
 }
