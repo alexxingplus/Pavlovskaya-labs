@@ -1,14 +1,16 @@
-// Очень сложная задача, нужно было пораскинуть мозгами, чтобы её решить
-// У меня это получилось лишь отчасти: программа выводит кучу треугольников просто
-// Где-то в коде есть ошибка, но найти её я не могуБ не получается
 
 #include <iostream>
 using namespace std;
 
 int high (double x1,double y1,double x2,double y2,double xt, double yd){
-    double soot, yt; //соотношение
+    double soot, yt(0); //соотношение
     soot = (xt-x1)/(x2-x1);
-    yt = y1 + soot*(y2*y1);
+    if (y1<y2){
+        yt = y1 + soot*(y2-y1);
+    }
+    else if (y1>=y2){
+        yt = y1 - soot*(y2-y1);
+    }
     if (yt>yd){
         return -1;// то есть точка ниже прямой
     }
@@ -20,8 +22,8 @@ int high (double x1,double y1,double x2,double y2,double xt, double yd){
     }
 }
 
-const int o = 8; //количество точек в первом множестве (от слова one)
-const int t = 5; //количество точек во втором множестве (от слова two)
+const int o = 6; //количество точек в первовм множестве (от слова one)
+const int t = 4; //количество точек во втором множестве (от слова two)
 
 int main(){
     int i, d1, d2, d3, fmax(0), fmin(0), fmid(0);
